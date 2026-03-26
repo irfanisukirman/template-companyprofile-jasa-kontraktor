@@ -1,0 +1,53 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Professional construction site with workers and modern architecture",
+      "imageUrl": "https://picsum.photos/seed/karya1/1920/1080",
+      "imageHint": "construction architecture"
+    },
+    {
+      "id": "about-img",
+      "description": "Team of professional engineers discussing blueprints",
+      "imageUrl": "https://picsum.photos/seed/karya2/800/600",
+      "imageHint": "engineers blueprint"
+    },
+    {
+      "id": "project-1",
+      "description": "Modern minimalist luxury house exterior",
+      "imageUrl": "https://picsum.photos/seed/proj1/600/400",
+      "imageHint": "modern house"
+    },
+    {
+      "id": "project-2",
+      "description": "Commercial building renovation project",
+      "imageUrl": "https://picsum.photos/seed/proj2/600/400",
+      "imageHint": "office building"
+    },
+    {
+      "id": "project-3",
+      "description": "Contemporary living room interior design",
+      "imageUrl": "https://picsum.photos/seed/proj3/600/400",
+      "imageHint": "interior design"
+    },
+    {
+      "id": "project-4",
+      "description": "Swimming pool and backyard construction",
+      "imageUrl": "https://picsum.photos/seed/proj4/600/400",
+      "imageHint": "pool construction"
+    },
+    {
+      "id": "project-5",
+      "description": "Industrial warehouse steel structure",
+      "imageUrl": "https://picsum.photos/seed/proj5/600/400",
+      "imageHint": "industrial structure"
+    },
+    {
+      "id": "project-6",
+      "description": "Kitchen remodeling with marble finish",
+      "imageUrl": "https://picsum.photos/seed/proj6/600/400",
+      "imageHint": "kitchen renovation"
+    }
+  ]
+}
