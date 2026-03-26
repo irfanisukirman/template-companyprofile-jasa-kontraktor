@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { name: "Layanan", href: "#layanan" },
   { name: "Portofolio", href: "#portofolio" },
   { name: "Mengapa Kami", href: "#keunggulan" },
+  { name: "Testimoni", href: "#testimoni"}
 ];
 
 export function Navbar() {
