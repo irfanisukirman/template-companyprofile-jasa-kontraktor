@@ -23,9 +23,27 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // If it's an internal link (starts with #)
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      
+      const targetId = href === "#" ? "body" : href.substring(1);
+      const element = document.getElementById(targetId) || (href === "#" ? document.body : null);
+      
+      if (element) {
+        window.scrollTo({
+          top: href === "#" ? 0 : element.offsetTop - 80,
+          behavior: "smooth"
+        });
+      }
+    }
+  };
 
   return (
     <nav
@@ -37,7 +55,11 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link 
+          href="/" 
+          className="flex items-center gap-2 group"
+          onClick={(e) => handleLinkClick(e, "#")}
+        >
           <div className="bg-primary p-1.5 rounded-lg text-white group-hover:scale-110 transition-transform">
             <Hammer size={24} />
           </div>
@@ -57,6 +79,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary",
                 isScrolled ? "text-secondary" : "text-secondary lg:text-white"
@@ -66,7 +89,9 @@ export function Navbar() {
             </Link>
           ))}
           <Button asChild className="rounded-full shadow-lg">
-            <Link href="#kontak">Konsultasi Gratis</Link>
+            <Link href="#kontak" onClick={(e) => handleLinkClick(e, "#kontak")}>
+              Konsultasi Gratis
+            </Link>
           </Button>
         </div>
 
@@ -95,12 +120,12 @@ export function Navbar() {
               key={link.name}
               href={link.href}
               className="text-secondary font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleLinkClick(e, link.href)}
             >
               {link.name}
             </Link>
           ))}
-          <Button asChild className="w-full rounded-full" onClick={() => setIsMobileMenuOpen(false)}>
+          <Button asChild className="w-full rounded-full" onClick={(e) => handleLinkClick(e, "#kontak")}>
             <Link href="#kontak">Hubungi Kami</Link>
           </Button>
         </div>
