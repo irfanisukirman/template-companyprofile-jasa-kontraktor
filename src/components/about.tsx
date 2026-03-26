@@ -15,7 +15,7 @@ export function About() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl z-10">
                 <Image
-                  src={aboutImg?.imageUrl || "https://picsum.photos/seed/karya2/800/600"}
+                  src={aboutImg?.imageUrl || "https://images.unsplash.com/photo-1713946598467-fcf9332c56ea?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
                   alt="Tentang Karya Abadi"
                   width={800}
                   height={600}

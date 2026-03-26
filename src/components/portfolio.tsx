@@ -11,12 +11,12 @@ import { ScrollReveal } from "./scroll-reveal";
 const CATEGORIES = ["Semua", "Residensial", "Komersial", "Interior"];
 
 const PROJECTS = [
-  { id: 1, title: "Modern Luxury Home", category: "Residensial", imgId: "project-1" },
-  { id: 2, title: "Grand Office Building", category: "Komersial", imgId: "project-2" },
-  { id: 3, title: "Contemporary Living", category: "Interior", imgId: "project-3" },
-  { id: 4, title: "Azure Pool Estate", category: "Residensial", imgId: "project-4" },
-  { id: 5, title: "Industrial Hub", category: "Komersial", imgId: "project-5" },
-  { id: 6, title: "Gourmet Kitchen", category: "Interior", imgId: "project-6" },
+  { id: 1, title: "Modern Luxury Home", category: "Residensial", imgUrl: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 2, title: "Grand Office Building", category: "Komersial", imgUrl: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 3, title: "Contemporary Living", category: "Interior", imgUrl: "https://images.unsplash.com/photo-1601654253194-260e0b6984f9?q=80&w=1099&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 4, title: "Azure Pool Estate", category: "Residensial", imgUrl: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 5, title: "Industrial Hub", category: "Komersial", imgUrl: "https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 6, title: "Gourmet Kitchen", category: "Interior", imgUrl: "https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1568&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
 ];
 
 export function Portfolio() {
@@ -60,18 +60,17 @@ export function Portfolio() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, idx) => {
-            const img = PlaceHolderImages.find(i => i.id === project.imgId);
             return (
               <ScrollReveal key={project.id} delay={idx * 100} direction="up">
                 <div 
                   className="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer"
                 >
                   <Image
-                    src={img?.imageUrl || `https://picsum.photos/seed/${project.id}/600/400`}
+                    src={project.imgUrl}
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    data-ai-hint={img?.imageHint || "construction project"}
+                    data-ai-hint="construction project"
                   />
                   
                   {/* Overlay */}
