@@ -2,8 +2,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Award, Building2, Users } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+
+const STATS = [
+  {
+    label: "Tahun Pengalaman",
+    value: "10+",
+    icon: Award,
+  },
+  {
+    label: "Proyek Selesai",
+    value: "200+",
+    icon: Building2,
+  },
+  {
+    label: "Klien Puas",
+    value: "99%",
+    icon: Users,
+  },
+];
 
 export function Hero() {
   const heroImg = PlaceHolderImages.find(img => img.id === 'hero-bg');
@@ -24,7 +42,7 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl animate-fade-in-up">
+        <div className="max-w-4xl animate-fade-in-up">
           <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 text-primary px-4 py-1.5 rounded-full mb-6">
             <CheckCircle2 size={16} />
             <span className="text-xs font-semibold tracking-wider uppercase">Kontraktor Berpengalaman</span>
@@ -38,7 +56,7 @@ export function Hero() {
             Kami hadir untuk mewujudkan bangunan impian Anda dengan standar kualitas tinggi, tepat waktu, dan transparansi anggaran yang terjamin.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
             <Button asChild size="lg" className="h-14 px-8 text-base rounded-full shadow-2xl hover:translate-y-[-2px] transition-transform">
               <Link href="#kontak" className="flex items-center gap-2">
                 Konsultasi Gratis <ArrowRight size={18} />
@@ -49,21 +67,27 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="mt-16 flex items-center gap-8 border-t border-white/10 pt-8 max-w-lg">
-            <div>
-              <p className="text-3xl font-bold text-white">10+</p>
-              <p className="text-sm text-white/60">Tahun Pengalaman</p>
-            </div>
-            <div className="w-px h-10 bg-white/10"></div>
-            <div>
-              <p className="text-3xl font-bold text-white">200+</p>
-              <p className="text-sm text-white/60">Proyek Selesai</p>
-            </div>
-            <div className="w-px h-10 bg-white/10"></div>
-            <div>
-              <p className="text-3xl font-bold text-white">99%</p>
-              <p className="text-sm text-white/60">Klien Puas</p>
-            </div>
+          {/* Enhanced Stats Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 max-w-3xl">
+            {STATS.map((stat, idx) => (
+              <div 
+                key={idx} 
+                className="group relative bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 overflow-hidden"
+              >
+                {/* Decorative background glow */}
+                <div className="absolute -right-4 -top-4 w-16 h-16 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-colors"></div>
+                
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+                    <stat.icon size={22} />
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-white tracking-tight">{stat.value}</p>
+                    <p className="text-sm text-white/50 font-medium uppercase tracking-wider">{stat.label}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
